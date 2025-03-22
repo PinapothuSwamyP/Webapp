@@ -9,8 +9,10 @@ pipeline {
         }
 
         stage('Build with Maven') {
-            steps {
-                sh 'mvn clean package'
+            steps { 
+                withMaven(maven: 'mvn') { // Use the name from Global Tool Configuration
+            sh 'mvn clean package'
+
             }
         }
     }
