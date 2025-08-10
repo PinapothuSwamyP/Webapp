@@ -1,18 +1,21 @@
 pipeline {
     agent any
     tools {
-        // This must exactly match the Maven name in Global Tool Configuration
-        maven 'Maven 3.6.3'
+        maven 'Maven 3.6.3'  // This name must match what you configured in Global Tool Configuration
+
     }
-    stages {
+   stages {
         stage('Checkout Code') {
             steps {
-                checkout scm
+               checkout scm
             }
         }
+
         stage('Build with Maven') {
             steps { 
-                sh 'mvn clean package'
+                withMaven(maven: 'mvn') { // Use the name from Global Tool Configuration
+            sh 'mvn clean package'
+                }
             }
         }
     }
