@@ -10,7 +10,7 @@ pipeline {
 
         stage('Build with Maven') {
             steps { 
-                withMaven(maven: 'mvn') { // Use the name from Global Tool Configuration
+                withMaven(maven: '/usr/share/maven') { // Use the name from Global Tool Configuration
             sh 'mvn clean package'
                 }
             }
