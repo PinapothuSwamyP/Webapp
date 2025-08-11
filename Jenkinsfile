@@ -18,7 +18,7 @@ pipeline {
                 sshagent(['tomcat-ssh-key']) {
                     sh '''
                         # Copy WAR to Tomcat webapps folder
-                        scp -o StrictHostKeyChecking=no target/*.war ec2-user@35.180.178.209:/opt/tomcat/webapps/
+                        scp -o StrictHostKeyChecking=no target/*.war ec2-user@172.31.40.174:/opt/tomcat/webapps/
                         
                         # Optionally restart Tomcat
                         # ssh -o StrictHostKeyChecking=no ec2-user@<TOMCAT_SERVER_IP> "sudo systemctl restart tomcat"
