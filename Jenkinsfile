@@ -1,10 +1,8 @@
 pipeline {
-    agent any
-#    
+    agent any  
     tools {
         jdk 'Java_17'     // Use the name defined in "Global Tool Configuration"
-    }
-#    
+    } 
     stages {
            stage('Build with Java 17') {
             steps {
